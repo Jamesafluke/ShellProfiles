@@ -12,7 +12,7 @@ Set-Alias -Name ll "Get-ChildItem -Force"
 Set-Alias -Name t -Value terraform
 Set-Alias -Name k -Value kubectl
 Set-Alias -Name g -Value git
-Set-Alias -Name ub3 -Value "C:\PersonalMyCode\UpdateBudget3\main.ps1"
+Set-Alias -Name ub3 -Value UpdateBudget3
 Set-Alias -Name vi -Value nvim
 Set-Alias -Name v -Value nvim
 Set-Alias -Name vim -Value nvim
@@ -21,21 +21,22 @@ Set-Alias -Name p2 -Value Goto-Project2
 Set-Alias -Name p3 -Value Goto-Project3
 
 function Goto-NeovimConfig {
-	Set-Location C:\Users\$user\AppData\Local\nvim\
+        Set-Location C:\Users\$user\AppData\Local\nvim\
 }
 
 function Goto-NetHackConfig {
-	vim C:\users\$user\NetHack\.nethackrc
+        vim C:\users\$user\NetHack\.nethackrc
 }
 
 function Goto-Project2 {
-	Set-Location C:\PersonalMyCode\BudgetUpdator\
-	ls
+        Set-Location C:\Code\BudgetUpdator\
+        ls
 }
 
 function Goto-PersonalMyCode {
-	Set-Location C:\PersonalMyCode\
-	pwd
+        Set-Location C:\Code\
+        pwd
 }
 
-Function nvimInit {nvim C:/Users/$user/AppData/Local/nvim/init.lua}
+function UpdateBudget3 {
+    pwsh "C:\CodeJames\UpdateBudget3\main.ps1"}

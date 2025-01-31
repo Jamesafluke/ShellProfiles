@@ -2,41 +2,52 @@ $user = "v-jfluckiger"
 $user = "jfluckiger"
 $user = "james"
 
-Set-Alias touch New-Object
-Set-Alias n nvim
-Set-Alias nconfig Goto-NeovimConfig
-Set-Alias -Name nethackconfig -Value Goto-NetHackConfig
-Set-Alias -Name p1 Goto-Project1
-Set-Alias -Name pmc Goto-PersonalMyCode
+$NConf = "C:\Users\$env:USERNAME\AppData\Local\nvim\"
+$Notes = "C:\Code\Notes\"
+$Code = "C:\Code\"
+
+function Nvim-Location {
+    Param([string]$Location)
+    nvim $Location
+}
+
+function Goto-Code {
+	Set-Location C:\Code\
+	ls
+}
+
+function Goto-PersonalMyCode {
+	Set-Location C:\CodeJames\
+	ls
+}
+
+Function nvimInit {nvim C:/Users/$env:USERNAME/AppData/Local/nvim/init.lua}
+
+Function nconf{
+    Nvim-Location $NConf
+}
+
+Function notes{
+    Nvim-Location $Notes
+}
+
+Function code{
+    Nvim-Location $Code
+}
+
+
+Set-Alias -Name touch New-Object
+Set-Alias -Name n nvim
 Set-Alias -Name ll "Get-ChildItem -Force"
 Set-Alias -Name t -Value terraform
 Set-Alias -Name k -Value kubectl
 Set-Alias -Name g -Value git
-Set-Alias -Name ub3 -Value UpdateBudget3
+Set-Alias -Name ub3 -Value "C:\PersonalMyCode\UpdateBudget3\main.ps1"
 Set-Alias -Name vi -Value nvim
 Set-Alias -Name v -Value nvim
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name touch -Value New-Item
+Set-Alias -Name c -Value Goto-Code
 Set-Alias -Name p2 -Value Goto-Project2
 Set-Alias -Name p3 -Value Goto-Project3
-
-function Goto-NeovimConfig {
-        Set-Location C:\Users\$user\AppData\Local\nvim\
-}
-
-function Goto-NetHackConfig {
-        vim C:\users\$user\NetHack\.nethackrc
-}
-
-function Goto-Project2 {
-        Set-Location C:\Code\BudgetUpdator\
-        ls
-}
-
-function Goto-PersonalMyCode {
-        Set-Location C:\Code\
-        pwd
-}
-
-function UpdateBudget3 {
-    pwsh "C:\CodeJames\UpdateBudget3\main.ps1"}
+Set-Alias -Name :q -Value exit

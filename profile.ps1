@@ -1,7 +1,3 @@
-$user = "v-jfluckiger"
-$user = "jfluckiger"
-$user = "james"
-
 $NConf = "C:\Users\$env:USERNAME\AppData\Local\nvim\"
 $Notes = "C:\Code\Notes\"
 $Code = "C:\Code\"

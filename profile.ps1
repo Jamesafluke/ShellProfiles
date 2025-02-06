@@ -47,3 +47,10 @@ Set-Alias -Name c -Value Goto-Code
 Set-Alias -Name p2 -Value Goto-Project2
 Set-Alias -Name p3 -Value Goto-Project3
 Set-Alias -Name :q -Value exit
+
+
+oh-my-posh init pwsh --config https://github.com/JanDeDobbeleer/oh-my-posh/themes/cobalt2.omp.json | Invoke-Expression
+
+
+
+

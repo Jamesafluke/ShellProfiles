@@ -1,38 +1,29 @@
-$NConf = "C:\Users\$env:USERNAME\AppData\Local\nvim\"
-$Notes = "C:\Code\Notes\"
-$Code = "C:\Code\"
 
-function Nvim-Location {
-    Param([string]$Location)
-    nvim $Location
-}
 
-function Goto-Code {
-	Set-Location C:\Code\
+$code = "C:\Code\"
+$notes = "C:\Users\v-fluckigerj\OneDrive\Notes\"
+$xboxDaily = "C:\Users\v-fluckigerj\OneDrive\Notes\Xbox.txt"
+$cSharp = "C:\Users\v-fluckigerj\OneDrive\Notes\C#"
+$generalXbox = "C:\Users\v-fluckigerj\OneDrive\Notes\XboxGeneral"
+
+function notes{
+	Set-Location $notes
 	ls
 }
 
-function Goto-PersonalMyCode {
-	Set-Location C:\CodeJames\
-	ls
-}
-
-Function nvimInit {nvim C:/Users/$env:USERNAME/AppData/Local/nvim/init.lua}
-
-Function nconf{
-    Nvim-Location $NConf
-}
-
-Function notes{
+Function note{
     Nvim-Location $Notes
 }
 
-Function code{
-    Nvim-Location $Code
+Function cnote{
+    Nvim-Location $cSharp
+}
+
+Function general{
+    Nvim-Location $generalXbox
 }
 
 
-Set-Alias -Name touch New-Object
 Set-Alias -Name n nvim
 Set-Alias -Name ll "Get-ChildItem -Force"
 Set-Alias -Name t -Value terraform
@@ -43,14 +34,11 @@ Set-Alias -Name vi -Value nvim
 Set-Alias -Name v -Value nvim
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name touch -Value New-Item
-Set-Alias -Name c -Value Goto-Code
-Set-Alias -Name p2 -Value Goto-Project2
-Set-Alias -Name p3 -Value Goto-Project3
-Set-Alias -Name :q -Value exit
 
 
-oh-my-posh init pwsh --config https://github.com/JanDeDobbeleer/oh-my-posh/themes/cobalt2.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json' | Invoke-Expression
 
+#f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
 
-
-
+Import-Module -Name Microsoft.WinGet.CommandNotFound
+#f45873b3-b655-43a6-b217-97c00aa0db58

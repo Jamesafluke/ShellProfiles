@@ -109,7 +109,6 @@ $taskbar = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 # Align Left (0=Left, 1=Center), Hide Task View (0), Hide Widgets (0)
 Set-ItemProperty -Path $adv -Name "TaskbarAl" -Value 0
 Set-ItemProperty -Path $adv -Name "ShowTaskViewButton" -Value 0
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Value 0 
 
 # Hide Search (0 = Hidden)
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Value 0

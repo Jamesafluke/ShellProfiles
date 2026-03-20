@@ -182,7 +182,6 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 $policiesExplorer = "HKCU:\Software\Policies\Microsoft\Windows\Explorer"
 if (!(Test-Path $policiesExplorer)) { New-Item -Path $policiesExplorer -Force }
 Set-ItemProperty -Path $policiesExplorer -Name "DisableSearchBoxSuggestions" -Value 1 # Web Search
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Value 0 # Widgets Icon
 
 Write-Host "Restarting Explorer to apply UI changes..." -ForegroundColor Yellow
 Stop-Process -Name explorer -Force

@@ -1,5 +1,4 @@
-Write-Host "Welcome to OneShot"
-
+Write-Host "`n`nWelcome to OneShot!"
 # Check for Administrative privileges
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
@@ -7,7 +6,7 @@ if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adm
     exit
 }
 
-Write-Host "Admin check passed. Proceeding with execution..." -ForegroundColor Green
+Write-Host "`n`nAdmin check passed. Proceeding with execution..." -ForegroundColor Green
 
 Write-Host "Starting Ninite" -ForegroundColor Cyan
 $apps = "chrome-firefox-windirstat-zoom-audacity-vlc-googledrive-notepadplusplus-vscode-gimp-googleearth-steam"
@@ -27,7 +26,7 @@ Remove-Item $tempPath
 Write-Host "Clean up complete. Ninite apps installed!" -ForegroundColor Green
 
 
-Write-Host "Installing Chocolately" -ForegroundColor Cyan
+Write-Host "`n`nInstalling Chocolately" -ForegroundColor Cyan
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Refresh environment variables
@@ -35,7 +34,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 
 
-Write-Host "`nInstalling choco apps" -ForegroundColor Cyan
+Write-Host "`n`nInstalling choco apps" -ForegroundColor Cyan
 
 $chocoApps = @("git.install", "pwsh", "powertoys", "neovim", "autohotkey.install", "grep")
 
@@ -49,13 +48,13 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 
 
-Write-Host "`nSetting Git Globals" -ForegroundColor Cyan
+Write-Host "`n`nSetting Git Globals" -ForegroundColor Cyan
 git config --global user.name "James Fluckiger"
 git config --global user.email "jamesafluke@gmail.com"
 
 
 
-Write-Host "`nAdding nvim config" -ForegroundColor Cyan
+Write-Host "`n`nAdding nvim config" -ForegroundColor Cyan
 $nvimConfigPath = Join-Path $env:LOCALAPPDATA "nvim"
 
 if (!(Test-Path $nvimConfigPath)) {
@@ -72,11 +71,12 @@ Write-Host "Neovim init.lua added." -ForegroundColor Green
 
 
 
+
+Write-Host "`n`nDownloading JetBrains Mono Zip..." -ForegroundColor Cyan
+
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
 $tempZip = "$env:TEMP\JetBrainsMono.zip"
 $tempFontFolder = "$env:TEMP\JetBrainsMonoFont"
-
-Write-Host "Downloading JetBrains Mono Zip..." -ForegroundColor Cyan
 Invoke-WebRequest -Uri $fontUrl -OutFile $tempZip
 
 # 2. Extract the zip
@@ -100,7 +100,7 @@ Remove-Item $tempFontFolder -Recurse
 Write-Host "JetBrains Mono Nerd Font Installed!" -ForegroundColor Green
 
 
-Write-Host "Applying Windows Personalization"
+Write-Host "`n`nApplying Windows Personalization"
 # --- Taskbar & Start Menu ---
 $adv = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 $search = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search"
@@ -186,4 +186,5 @@ Write-Host "Restarting Explorer to apply UI changes..." -ForegroundColor Yellow
 Stop-Process -Name explorer -Force
 Start-Process explorer.exe
 
+Write-Host "`n`nOneshot is done!" -ForegroundColor Cyan
 

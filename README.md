@@ -1,13 +1,7 @@
-#Programs and Tools
+#Programs and Tools (not in OneShot)
 
-
-Ninite
-Cura
 Musescore
-VS Code
-Visual Studio
 Auto Hotkey
-Power Toys
 Bambu
 https://github.com/Raphire/Win11Debloat
 Linux
@@ -15,20 +9,10 @@ Nvidia
 Rider
 FilePilot
 
-Sign into browsers
-Alt tab settings
-Taskbar settings
 Accent color and focus window
-Power settings
 Enable sudo
 
 Programs and tools
-git
-pwsh
-chocolatey
-neovim
-az cli
-azure Powershell
 
 JetBrains Mono Nerdfont
 

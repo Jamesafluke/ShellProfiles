@@ -100,6 +100,26 @@ Remove-Item $tempFontFolder -Recurse
 Write-Host "JetBrains Mono Nerd Font Installed!" -ForegroundColor Green
 
 
+
+Write-Host "`n`nUpdating PowerShell Profile" -ForegroundColor Cyan
+$profilePath = $PROFILE.CurrentUserAllHosts
+
+$profileDir = Split-Path $profilePath
+if (!(Test-Path $profileDir)) {
+    New-Item -ItemType Directory -Force -Path $profileDir
+}
+
+$profileUrl = "https://raw.githubusercontent.com/Jamesafluke/Config/main/profile.ps1"
+try {
+    Invoke-WebRequest -Uri $profileUrl -OutFile $profilePath -ErrorAction Stop
+    Write-Host "PowerShell profile successfully overwritten at: $profilePath" -ForegroundColor Green
+}
+catch {
+    Write-Error "Failed to download profile.ps1 from GitHub."
+}
+
+
+
 Write-Host "`n`nApplying Windows Personalization"
 # --- Taskbar & Start Menu ---
 $adv = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"

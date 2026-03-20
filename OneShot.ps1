@@ -101,6 +101,27 @@ Write-Host "JetBrains Mono Nerd Font Installed!" -ForegroundColor Green
 
 
 
+Write-Host "`n`nUpdating Windows Terminal Json Settings" -ForegroundColor Cyan
+$wtSettingsDir = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+$wtSettingsPath = "$wtSettingsDir\settings.json"
+
+# Ensure the directory exists (it should if WT was installed, but good for safety)
+if (!(Test-Path $wtSettingsDir)) {
+    New-Item -ItemType Directory -Force -Path $wtSettingsDir
+}
+
+# Download and overwrite the settings.json
+$wtSettingsUrl = "https://raw.githubusercontent.com/jamesafluke/Config/main/settings.json"
+try {
+    Invoke-WebRequest -Uri $wtSettingsUrl -OutFile $wtSettingsPath -ErrorAction Stop
+    Write-Host "Windows Terminal settings successfully updated!" -ForegroundColor Green
+}
+catch {
+    Write-Error "Failed to download settings.json from GitHub."
+}
+
+
+
 Write-Host "`n`nUpdating PowerShell Profile" -ForegroundColor Cyan
 $profilePath = $PROFILE.CurrentUserAllHosts
 

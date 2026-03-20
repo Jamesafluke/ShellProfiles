@@ -37,7 +37,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 Write-Host "`nInstalling choco apps" -ForegroundColor Cyan
 
-$chocoApps = @("git.install", "pwsh", "powertoys", "neovim", "autohotkey.install")
+$chocoApps = @("git.install", "pwsh", "powertoys", "neovim", "autohotkey.install", "grep")
 
 foreach ($app in $chocoApps) {
     Write-Host "--- Installing $app ---"

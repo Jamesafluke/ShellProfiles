@@ -1,30 +1,28 @@
 # Programs and Tools (not in OneShot)
 
-Musescore
-Auto Hotkey
-Bambu
-https://github.com/Raphire/Win11Debloat
-Linux
-Nvidia
-Rider
 FilePilot
 
-Accent color and focus window
-Enable sudo
+Musescore
 
-Programs and tools
+Auto Hotkey
+
+Bambu
+
+https://github.com/Raphire/Win11Debloat
+
+Linux
+
+Nvidia
+
+Rider
+
+Accent color and focus window
+
+Enable sudo
 
 JetBrains Mono Nerdfont
 
-
-### Bash ctrl backspace:
-"\C-h": backward-kill-word
-in ~/.inputrc
-
-### settings.json is for Windows Terminal.
-
-
-# nvim Stuff
+# Neovim Stuff
 
 ### Linux default location
 ~/.config/nvim/init.lua
@@ -35,3 +33,8 @@ in ~/.inputrc
 ### To see the current location
 :echo stdpath('config')
 
+# Misc
+
+### Bash ctrl backspace:
+"\C-h": backward-kill-word
+in ~/.inputrc

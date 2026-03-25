@@ -1,0 +1,18 @@
+# ~/.gitconfig
+
+[user]
+    name = James Fluckiger
+    email = james.fluckiger@halomd.com
+
+[credential]
+    # This is the line that tells Windows to use GCM
+    helper = manager
+
+[core]
+    # Prevents "Line Ending" nightmares between Windows and Linux/Mac
+    autocrlf = true
+    # Ensures VS Code is your default editor for commit messages
+    editor = nvim
+
+[init]
+    defaultBranch = main

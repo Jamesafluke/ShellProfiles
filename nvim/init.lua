@@ -9,7 +9,8 @@ vim.opt.scrolloff = 18
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-
+" Set number of spaces per tab
+set tabstop=4
 
 -- Ctrl+Backspace = delete previous word
 vim.keymap.set('i', '<C-BS>', '<C-w>', { desc = 'Delete previous word (Insert)' })

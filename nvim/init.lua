@@ -9,8 +9,9 @@ vim.opt.scrolloff = 18
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-" Set number of spaces per tab
-set tabstop=4
+-- Tab spacing
+vim.opt.tabstop = 4       -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 4    -- Number of spaces to use for each step of (auto)indent
 
 -- Ctrl+Backspace = delete previous word
 vim.keymap.set('i', '<C-BS>', '<C-w>', { desc = 'Delete previous word (Insert)' })
